@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -38,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
         });
         picassoImageView = findViewById(R.id.picassoImageView);
         // used picasso to load image from url.
-        Picasso.get().load("http://upload.wikimedia.org/wikipedia/commons/e/ee/Android_green_figure,_next_to_its_original_packaging.jpg\n").into(picassoImageView);
+        Picasso.get().load("http://upload.wikimedia.org/wikipedia/commons/e/ee/Android_green_figure,_next_to_its_original_packaging.jpg").into(picassoImageView);
+        picassoImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Image shown using URL with the help of library Picasso.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
